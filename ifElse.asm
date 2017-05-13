@@ -1,9 +1,15 @@
 #Exercício 2: ifElse
+#if ( i == j )
+#f = g + h;
+#else
+#f = g – h;
 
-.data
-    bne $t0, t01, else
-    add $t2, $t3, $t4
-    j exit
+	.text
+	.globl main
+main:
+	bne $11, $12, else
+    	add $8, $9, $10
+    	j exit
 else:
-    sub $t2, $t3, $t4
+    	sub $8, $9, $10
 exit:
