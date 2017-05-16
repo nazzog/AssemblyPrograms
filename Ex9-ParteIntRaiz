@@ -1,0 +1,40 @@
+#Exercício 9: Parte inteira da raiz quadrada
+# Encontrar a raiz de m
+# Resultado em n
+#void main() {
+#int n = 0, i = 1;
+#int m = 16;
+#while (m >= i){
+#m = m - i;
+#i = i + 2;
+#n = n + 1
+#}
+#}
+
+#Declaração de variáveis:
+.data
+	n: .word 0
+	 i: .word 1
+	m: .word 16
+.text
+#Carregar variáveis nos registradores:
+	la $t0, n
+	lw $t1, 0($t0)
+
+	la $t2, i
+	lw $t2, 0($t2)
+
+	la $t3, m
+	lw $t3, 0($t3)
+
+#Manipulação:
+while:
+	slt $t8, $t3, $t2
+	bne $t8, $0, end
+	sub $t3, $t3, $t2
+	addi $t2, $t2, 2
+	addi $t1, $t1, 1
+	j while
+end:
+	sw $t1, 0($t0)
+
